@@ -1,13 +1,11 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-
-
 // Set Min and Max password lengths
 const PMin = 8;
 var Pmax = 128;
 
-var keyMatch = [];
+// var keyMatch = [];
 
 
 // keyCha generation - Array analysis- from looking thhrough UT-16
@@ -18,19 +16,23 @@ var keyMatch = [];
  
 
 function generatePassword(){
+
   // Password Parameters
   Pmax = prompt("How many characters should your password be?", "Please choosee between 8 - 128 characters");
   let outPut;
-  
+  // Reset Parameters condition
   if (Pmax < 8){
-    alert("Too little Characters!")
+    alert("Password does not have enough Characters!")
     generatePassword();
   
   } else if (Pmax > 128){
-    alert("Too many Characters!")
+    alert("Password has too many Characters!")
     generatePassword();
-  } else {; 
+  } 
+  // Conditional to start function. 
+  else { 
 
+// confirms
 // lowercase
   var lowC = confirm("Would you like the password to contain lowercase characters?");
 // uppercase 
@@ -45,105 +47,81 @@ function generatePassword(){
   for (let i=32; i<127; i++){
   keyCha.push(String.fromCharCode(i));
   };   
-//Copying Character Array to remove elements according to confirms. 
-  var keyUpdt = keyCha;
+
+//Generating arrays to check if elements exist in password. 
+//Creating Holds to push towards Password resource array from character array.
+  var keyTempt = keyCha;
+  console.log(keyTempt);
+    // indentify where lower case starts which is "a" then splice 26 from there.
+  var lowHold = keyTempt.splice(keyTempt.indexOf("a"),26);
+  var keyTempt = keyCha;
+    // indentify where Upper case starts which is "A" then splice 26 from there.
+  var UppHold = keyTempt.splice(keyTempt.indexOf("A"),26);
+  var keyTempt = keyCha;
+    // indentify where numbers start which is "0" then splice 10 from there.
+  var NumHold = keyTempt.splice(keyTempt.indexOf("0"),10);
+  var keyTempt = keyCha;
+  // indentify where special case groups starts:
+  // " " is the first element then splice 16
+  var Spc1Hold = keyTempt.splice(keyTempt.indexOf(" "),16);
+  var keyTempt = keyCha;
+  //":" is the first element in 2nd group then splice 7;
+  var Spc2Hold = keyTempt.splice(keyTempt.indexOf(":"),7);
+  var keyTempt = keyCha;
+  // Combine  Special Character Holds.
+  let SpcHold = Spc1Hold.concat(Spc2Hold);
+  // "[" is the first element in 3rd group then splice 6;
+  var Spc3Hold = keyTempt.splice(keyTempt.indexOf("["),6);
+  var keyTempt = keyCha;
+  // Combine  Special Character Holds.
+  SpcHold = SpcHold.concat(Spc3Hold);
+  // "{" is the first element in 4th group then splice 8;
+  var Spc4Hold = keyTempt.splice(keyTempt.indexOf("{"),8);
+  var keyTempt = keyCha;
+    // Combine  Special Character Holds.
+  SpcHold = SpcHold.concat(Spc4Hold);
+
+//Creating Array to push forward desired elements
+  var keyUpdt = [];
   console.log(keyUpdt);
 
 
 
-//Generating arrays to check if elements exist in password. 
-  var keyTempt = keyCha;
-  console.log(keyTempt);
-  var lowArr = keyTempt.splice(keyTempt.indexOf("a"),24);
-  console.log(lowArr);
 
 // Checking Confirms to splice out unwanted elements
-
-  if (lowC === false){
-  // indentify where lower case starts which is "a" then splice 26 from there.
-  let lowCut = keyUpdt.indexOf("a");
-  keyUpdt.splice(lowCut,26);
-
+console.log(keyUpdt);
+  if (lowC == true){
+    keyUpdt  = keyUpdt.concat(lowHold);
+    console.log(keyUpdt);
   }
-  else{ 
-
-
+  if (UppC == true){
+    keyUpdt = keyUpdt.concat(UppHold);
+    console.log(keyUpdt);
   }
-  if (UppC === false){
-  // indentify where Upper case starts which is "A" then splice 26 from there.
-  let UpCut = keyUpdt.indexOf("A");
-  keyUpdt.splice(UpCut,26);
-  }
-  if (NumC === false){
-  // indentify where numbers start which is "0" then splice 10 from there.
-    let NumCut = keyUpdt.indexOf("0");
-    keyUpdt.splice(NumCut,10);
+  if (NumC == true){
+    keyUpdt = keyUpdt.concat(NumHold);
+    console.log(keyUpdt);
   } 
-  if (SpcC === false){
-  // indentify where special case groups starts:
-  // " " is the first element then splice 16
-  let SpcCut1 = keyUpdt.indexOf(" ");
-  keyUpdt.splice(SpcCut1,16);
-  //":" is the first element in 2nd group then splice 7;
-  let SpcCut2 = keyUpdt.indexOf(":");
-  keyUpdt.splice(SpcCut2,7);
-  // "[" is the first element in 3rd group then splice 6;
-  let SpcCut3 = keyUpdt.indexOf("[");
-  keyUpdt.splice(SpcCut3,6);
-  // "{" is the first element in 4th group then splice 8;
-  let SpcCut4 = keyUpdt.indexOf("{");
-  keyUpdt.splice(SpcCut4,8);  
+  if (SpcC == true){
+    keyUpdt = keyUpdt.concat(SpcHold);
+    console.log(keyUpdt);  
   }
-  // random num key generator;
-  let password = [];
+// Random num key generator
+  console.log(keyUpdt);
+  let password1 = [];
   for (let i = 0;  i<Pmax;i++){
-    var location = Math.floor(Math.random()*(keyUpdt.length-1)); 
-    password[i] = keyUpdt[location];
+    var location = Math.floor(Math.random()*(keyUpdt.length)); 
+    password1[i] = keyUpdt[location];
   }
-  // password array check
+// Password array check
   console.log(password);
-// join password into one output string 
-  outPut = password.join("");
+// Join password into one output string 
+  outPut = password1.join("");
+  console.log(outPut);
   // Reset Array
   keyUpdt = keyCha;
-
-// Conditionals for rare occassion that .random does not choose an element from  the appropriate array. 
-// if(lowC === true){
-//   let lowAChck = lowArr.every( item => {
-//     return outPut.includes(item);
-//   });
-//   if (lowAChck === false){
-//     generatePassword();
-//   };
-// }  
-// if(UppC === true){
-//     let UppAChck = UppArr.every( item => {
-//       return outPut.includes(item);
-//     });
-//     if (UppAChck === false){
-//       generatePassword();
-//     }
-    
-// }
-// if(NumC === true){
-//     let NumAChck = NumArr.every( item => {
-//       return outPut.includes(item);
-//     });
-//     if (NumAChck === false){
-//       generatePassword();
-//     }
-    
-// }
-// if(SpcC === true){
-//     let SpcAChck = SpcC.every( item => {
-//       return outPut.includes(item);
-//     });
-//     if (SpcAChck === false){
-//       generatePassword();
-//     }    
-// }
-  }
 return outPut
+  }
 };
 
 // Write password to the #password input
