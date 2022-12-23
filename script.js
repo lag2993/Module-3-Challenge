@@ -16,6 +16,7 @@ function generatePassword(){
 
   // Password Parameters
   Pmax = prompt("How many characters should your password be?", "Please choosee between 8 - 128 characters");
+  console.log(Pmax);
   let outPut;
   // Reset Parameters condition
   if (Pmax < 8){
@@ -25,7 +26,14 @@ function generatePassword(){
   } else if (Pmax > 128){
     alert("Password has too many Characters!")
     generatePassword();
-  } 
+  } else if (Pmax === "Please choosee between 8 - 128 characters"){
+    console.log(Pmax);
+    alert("Please choose a password length between 8-128 characters.")
+    generatePassword(); 
+  }else if(Pmax === false){
+    alert("Please choose a password length between 8-128 characters.")
+    generatePassword(); 
+  }
   // Conditional to start function. 
   else { 
 
