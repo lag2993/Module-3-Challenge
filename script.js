@@ -5,9 +5,6 @@ var generateBtn = document.querySelector("#generate");
 const PMin = 8;
 var Pmax = 128;
 
-// var keyMatch = [];
-
-
 // keyCha generation - Array analysis- from looking thhrough UT-16
 // Special Characters array location 0-16, 27-33, 60-65, 91-94 - spacing: 16,7,6,8
 // Number array location 16 -25 - spacing: 10
