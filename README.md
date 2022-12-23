@@ -14,37 +14,40 @@ N/A
   MIT License
 
 ## Link to  Deployed Project Website 
-  https://lag2993.github.io/Module-2-Challenge/
+ https://lag2993.github.io/Module-3-Challenge/
   
 ---  
 ## User Story
+ AS AN employee with access to sensitive data I WANT to randomly generate a password the meets certain criteria SO THAT I can create a strong password that provides greater security. 
 
-AS AN employer I WANT to view a potential employee's deployed portfolio of work samples so THAT I can review samples of their work and assess whether they're a good candidate for an open position
 
 ## Acceptance Criteria
 
-GIVEN I need to sample a potential employee's previous work
+GIVEN I need a new, secure password
+  
+WHEN I click the button to generate a password
+  
+THEN I am presented with a series of prompts for password criteria
+  
+WHEN prompted for password criteria
+  
+THEN I select which criteria to include in the password
+  
+WHEN prompted for the length of the password
+  
+THEN I choose a length of at least 8 characters and no more than 128 characters
+  
+WHEN asked for character types to include in the password
+  
+THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
+  
+WHEN I answer each prompt
+  
+THEN my input should be validated and at least one character type should be selected
 
-WHEN I load their portfolio
+WHEN all prompts are answered
+THEN a password is generated that matches the selected criteria
 
-THEN I am presented with the developer's name, a recent photo or avatar, and links to sections about them, their work, and how to contact them
-
-WHEN I click one of the links in the navigation
-
-THEN the UI scrolls to the corresponding section
-
-WHEN I click on the link to the section about their work
-
-THEN the UI scrolls to a section with titled images of the developer's applications
-
-WHEN I am presented with the developer's first application
-
-THEN that application's image should be larger in size than the others
-
-WHEN I click on the images of the applications
-
-THEN I am taken to that deployed application
-
-WHEN I resize the page or view the site on various screens and devices
-
-THEN I am presented with a responsive layout that adapts to my viewport
+WHEN the password is generated
+  
+THEN the password is either displayed in an alert or written to the page
