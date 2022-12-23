@@ -1,12 +1,12 @@
 # <Module-Challenge-3>
 ## Description
-  Module 3 Challenge, an on-the-job-ticket to alter the given code in order to generate a password matching the length criteria of between 8-128 characters, and what type of characters password will include. Passwords are generated using UT-16 format to include all potential characters on a keyboard.  
+  Module 3 Challenge, an on-the-job-ticket to alter the given code to generate a password matching the length criteria of between 8-128 characters, and what type of characters the password will  include. Passwords are generated using UT-16 format to include all potential characters on a keyboard.  
   
 ## Installation
 N/A
 
 ## Usage
-  Password Generator website, user has to click generate password button then respond to the following prompt and confirms to tailor password criteria. 
+  Password Generator website, user has to click generate password button then respond to the following prompt and confirms to tailor password criteria. Then password should be generated above the generate button.  
 ## Credits
 
   N/A
