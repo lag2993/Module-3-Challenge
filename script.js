@@ -4,7 +4,7 @@ var generateBtn = document.querySelector("#generate");
 // Set Min and Max password lengths
 const PMin = 8;
 var Pmax = 128;
-
+var generatedPass;
 // keyCha generation - Array analysis- from looking thhrough UT-16
 // Special Characters array location 0-16, 27-33, 60-65, 91-94 - spacing: 16,7,6,8
 // Number array location 16 -25 - spacing: 10
@@ -19,7 +19,7 @@ function generatePassword(){
   console.log(Pmax);
   let outPut;
   // Reset Parameters condition
-  if (Pmax < 8){
+  if (Pmax < 8 && Pmax > 0){
     alert("Password does not have enough Characters!")
     generatePassword();
   
@@ -30,7 +30,7 @@ function generatePassword(){
     console.log(Pmax);
     alert("Please choose a password length between 8-128 characters.")
     generatePassword(); 
-  }else if(Pmax === false){
+  }else if(Pmax === null){
     alert("Please choose a password length between 8-128 characters.")
     generatePassword(); 
   }
@@ -125,17 +125,16 @@ console.log(keyUpdt);
   console.log(outPut);
   // Reset Array
   keyUpdt = keyCha;
-return outPut
+  generatedPass = outPut;
   }
 };
 
 // Write password to the #password input
 function writePassword() {
 
-  var password = generatePassword();
+  generatePassword();
   var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
+  passwordText.textContent = generatedPass;
 }
 
 // // Add event listener to generate button
