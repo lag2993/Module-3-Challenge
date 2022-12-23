@@ -114,7 +114,7 @@ console.log(keyUpdt);
     password1[i] = keyUpdt[location];
   }
 // Password array check
-  console.log(password);
+  console.log(password1);
 // Join password into one output string 
   outPut = password1.join("");
   console.log(outPut);
