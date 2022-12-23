@@ -6,7 +6,7 @@
 N/A
 
 ## Usage
-  Password Generator website, user has to click generate password button then respond to the following prompt and confirms to tailor password criteria. Then password should be generated above the generate button.  
+  Password Generator website, user has to click generate password button then respond to the following prompt and confirms to tailor password criteria. Then password should be generated in the text box above the generate button.  
 ## Credits
 
   N/A
